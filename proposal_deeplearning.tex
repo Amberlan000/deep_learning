@@ -1,0 +1,105 @@
+\documentclass[a4paper,11pt]{article} % Don't change this
+\usepackage{fullpage} % Don't change this
+
+\usepackage{titling} % Don't change this
+\pretitle{\vspace{-6em}\begin{center}\larger[2]\bf} % Don't change this
+\postauthor{\end{center}} % Don't change this
+\preauthor{\vspace{-2em}\begin{center}\smaller[1]} % Don't change this
+\postauthor{\end{center}\vspace{-5em}} % Don't change this
+
+\usepackage[shortlabels]{enumitem} % Don't change this 
+\setlist{itemsep=0em,topsep=0.3em} % Don't change this
+
+%%% Some useful packages.
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{relsize}
+\usepackage{cleveref}
+\crefname{figure}{Fig.}{Figs.}
+
+\usepackage[backend=bibtex,natbib=true,style=authoryear-icomp,maxnames=3,giveninits=true]{biblatex}
+\citetrackerfalse
+\bibliography{ref.bib} % put bib entries in ref.bib
+
+\usepackage[linesnumbered]{algorithm2e}
+\usepackage{cleveref}
+\crefname{equation}{Equation.}{Equations.}
+\crefname{figure}{Figure}{Figures.}
+
+\usepackage{lipsum}
+\usepackage{wrapfig}
+\usepackage{tikz}
+
+
+%%% Add additional packages or macros below
+
+\begin{document}
+
+\title{Deep Learning for Stock Market Prediction:\\ An application project aimed at studying S\&P 500 }
+\author{Group 14 \\
+Salman Chowdhury (s47839438) $\cdot$
+Min-Chia Lan (s49038552)\\
+Timothy Le Pers (s43907021) $\cdot$
+Zheng Ying (s49294974)}
+
+\date{}
+\maketitle
+
+\begin{abstract}
+Predicting stock price movements remains challenging due to inherent market volatility and complex nonlinear dynamics. Recent advances in deep learning, specifically Recurrent Neural Networks (RNNs) and Convolutional Neural Networks (CNNs), have shown significant potential in handling such complexities. This project aims to apply these methods, along with attention mechanisms, to predict daily price movements of the S\&P 500 index between 2020 and 2025. The project's effectiveness will be evaluated through accuracy metrics, error rates, and historical backtesting. 
+\end{abstract}
+
+\section{Topic}
+
+We propose to build a deep learning model to classify daily movements (rise or fall) of the S\&P 500 closing prices. Our primary methodologies include: 
+
+\begin{itemize}
+    \item \textbf{RNNs}: Utilizing Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRU) to effectively handle sequential dependencies. 
+    \item \textbf{CNNs}: Adapting convolutional neural networks to capture local patterns in financial time-series data. 
+    \item \textbf{Attention Mechanisms}: Enhancing the model's ability to focus on significant time-steps and long-range dependencies. 
+\end{itemize}
+
+\noindent Model performance will be measured using classification accuracy, precision, recall, and financial backtesting to ensure practical relevance. 
+
+\section{Significance}
+
+Accurate stock price prediction is critically important for investment decisions and risk management, especially during volatile market periods influenced by global events such as pandemics, geopolitical tensions, and economic policy shifts like the US tariff wars. Traditional forecasting methods often struggle with market volatility and nonlinearity, making deep learning approaches highly advantageous. Employing advanced neural network techniques, such as RNNs and CNNs combined with attention mechanisms, offers the potential to substantially improve predictive accuracy by uncovering complex market dynamics. 
+
+\section{Feasibility}
+
+Data Availability: Historical daily S\&P 500 data (open, high, low, close, volume) from NASDAQ (2020–2025) has been acquired. 
+\section*{Work Completed}
+\begin{itemize}
+    \item Preliminary data exploration and literature review validating the use of RNNs, CNNs, and attention mechanisms for stock market prediction.
+\end{itemize}
+
+\section*{Planned Work}
+\begin{itemize}
+    \item \textbf{Preprocessing}: Data cleaning, normalization, and financial feature engineering.
+    \item \textbf{Modeling}: Implement RNN and CNN models with attention mechanisms using Python and Scikit-learn.
+    \item \textbf{Evaluation}: Compare model performance against traditional methods through backtesting.
+\end{itemize}
+
+\textbf{Resources}: University GPU facilities will support the computational demands.
+
+\section*{Stretch Goal}
+\begin{itemize}
+    \item Applying the model to different indexes to evaluate comparative performance in different markets and conditions.
+\end{itemize}
+
+\section*{References}
+
+\begin{itemize}
+  \item Hiransha, M., Gopalakrishnan, E.A., Menon, V.K., \& Soman, K.P. (2018). NSE Stock Market Prediction Using Deep-Learning Models. \textit{Procedia Computer Science, 132}, 1351--1362.
+
+  \item Rather, A.M., Agarwal, A., \& Sastry, V.N. (2015). Recurrent neural network and a hybrid model for prediction of stock returns. \textit{Expert Systems with Applications, 42}(6), 3234--3241.
+\end{itemize}
+
+\smaller
+\printbibliography
+
+\end{document}
