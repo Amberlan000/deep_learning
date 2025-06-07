@@ -132,7 +132,9 @@ def train_model(model, train_loader, scaler, optimizer, loss_fn, n_epochs, devic
 ############################################################################
 
 #reading data
-df = pd.read_csv("S&P500 5Y.csv")
+#df = pd.read_csv("S&P500 5Y.csv")
+#df = pd.read_csv("NASDAQ-100 (NDX) Historical Data 5Y.csv")
+df = pd.read_csv("Dow Jones Industrial Average Historical Data 5Y.csv")
 df["Date"] = pd.to_datetime(df["Date"], format="%m/%d/%Y")
 df = df.sort_values("Date")
 features = ["Close/Last", "Open", "High", "Low"]
@@ -141,7 +143,7 @@ features = ["Close/Last", "Open", "High", "Low"]
 
 #hyperparameters
 
-seed_num=13
+seed_num=20
 set_seed(seed_num)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -149,13 +151,14 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 norm=RobustScaler()
 loss_fn = nn.MSELoss()
 
-#need to include early stopping at some point
-MAX_EPOCHS = 30
-seq_len = [5, 10, 20]
-batch_size = [64, 128, 256]
-hidden_sizes = [32, 64, 128]
-learning_rates = [0.001, 0.01, 0.05, 0.1]
-num_layers_list = [1, 2, 3, 4]
+MAX_EPOCHS = 50
+seq_len = [50]
+batch_size = [64]
+
+#for tuning
+hidden_sizes = [32, 64, 128, 256]
+learning_rates = [0.001, 0.005, 0.01]
+num_layers_list = [1, 2, 3]
 
 gen = torch.Generator().manual_seed(seed_num)
 grid = list(product(hidden_sizes, learning_rates, num_layers_list))
